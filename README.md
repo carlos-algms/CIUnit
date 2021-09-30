@@ -48,7 +48,7 @@ Add a new "Repository" to your `composer.json` file:
 ```
 
 ```bash
-composer require carlos-algms/ciunit main
+composer require carlos-algms/ciunit @dev --dev
 ```
 
 Copy the example test directory into the root of your project (same folder as `application` and `system`):
