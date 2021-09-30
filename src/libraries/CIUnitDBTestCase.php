@@ -6,7 +6,7 @@
  */
 abstract class CIUnit_DBTestCase extends CIUnit_TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->CI->db = load_class([
@@ -16,7 +16,7 @@ abstract class CIUnit_DBTestCase extends CIUnit_TestCase
         $this->CI->db->trans_start();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->CI->db->trans_rollback();
         $this->CI->db->close();

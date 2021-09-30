@@ -5,7 +5,7 @@
  */
 class CI_Unit_Test_class_Test extends CIUnit_TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
     }
 

@@ -5,7 +5,7 @@
  */
 class SomeLibTest extends CIUnit_TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         // Set up fixtures to be run before each test
 

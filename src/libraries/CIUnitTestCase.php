@@ -7,13 +7,16 @@
 * http://www.opensource.org/licenses/mit-license.php
 */
 
+use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Constraint\TraversableContains;
+
 trait CIUnit_Assert
 {
     public static function assertRedirects($ciOutput, $location, $message = 'Failed to assert redirect')
     {
         $haystack = $ciOutput->get_headers();
         $needle = array("Location: " . site_url($location), TRUE);
-        $constraint = new PHPUnit_Framework_Constraint_TraversableContains($needle, TRUE);
+        $constraint = new TraversableContains($needle, TRUE);
 
         self::assertThat($haystack, $constraint, $message);
     }
@@ -27,10 +30,10 @@ trait CIUnit_Assert
 }
 
 /**
- * Extending the default phpUnit Framework_TestCase Class
+ * Extending the default phpUnit TestCase Class
  * providing eg. fixtures, custom assertions, utilities etc.
  */
-abstract class CIUnit_TestCase extends PHPUnit_Framework_TestCase
+abstract class CIUnit_TestCase extends TestCase
 {
     use CIUnit_Assert;
 
@@ -103,7 +106,7 @@ abstract class CIUnit_TestCase extends PHPUnit_Framework_TestCase
      *
      * @author Eric Jones
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         // Only run if the $tables attribute is set.
         if (!empty($this->tables)) {
@@ -128,7 +131,7 @@ abstract class CIUnit_TestCase extends PHPUnit_Framework_TestCase
      *
      * @author Eric Jones
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->restorePreLoadedVars();
 
@@ -179,7 +182,7 @@ abstract class CIUnit_TestCase extends PHPUnit_Framework_TestCase
      * @param array $methods
      * @param bool $disableOriginalConstructor
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject
      */
     protected function mock($varName, $className, $methods = array(), $disableOriginalConstructor = true)
     {
@@ -313,7 +316,7 @@ abstract class CIUnit_TestCase extends PHPUnit_Framework_TestCase
             }
         }
     }
-    
+
     public function invokeMethod(&$object, $methodName, array $parameters = array())
     {
         $reflection = new \ReflectionClass(get_class($object));

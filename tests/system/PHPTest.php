@@ -5,7 +5,7 @@
  */
 class PHPTest extends CIUnit_TestCase
 {
-    function setUp()
+    function setUp(): void
     {
         // Setup
     }

@@ -1,8 +1,7 @@
 phpunit.xml
 
-# Composer
-composer.lock
 vendor/
 .DS_Store
 
 .idea
+.vscode

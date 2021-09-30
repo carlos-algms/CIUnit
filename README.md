@@ -9,7 +9,7 @@
 ```php
 class LoginActionTest extends CIUnit_TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->CI = set_controller('login');
     }

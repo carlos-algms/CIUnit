@@ -15,6 +15,12 @@
 
 // ------------------------------------------------------------------------
 
+if (class_exists('MY_Exceptions')) {
+    class CIU_CI_or_MY_Exceptions extends MY_Exceptions {}
+} else {
+    class CIU_CI_or_MY_Exceptions extends CI_Exceptions {}
+}
+
 /**
  * Exceptions Class
  *
@@ -24,7 +30,7 @@
  * @author      ExpressionEngine Dev Team
  * @link        http://codeigniter.com/user_guide/libraries/exceptions.html
  */
-class CIU_Exceptions extends MY_Exceptions
+class CIU_Exceptions extends CIU_CI_or_MY_Exceptions
 {
 
     /**

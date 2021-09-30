@@ -4,6 +4,7 @@
          stopOnFailure="false"
          bootstrap="../vendor/celc/ciunit/src/bootstrap_phpunit.php">
     <php>
+        <server name="HTTP_HOST" value="example.com"/>
         <server name="SERVER_NAME" value="http://example.com"/>
         <server name="REMOTE_ADDR" value="127.0.0.1" />
     </php>

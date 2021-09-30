@@ -2,11 +2,17 @@
 
 /*
 * CodeIgniter source modified for CIUnit
-* 
+*
 * If you use MY_Session, change the paraent class.
 */
 
-class CIU_Session extends CI_Session
+if (class_exists('MY_Session')) {
+    class CIU_CI_or_MY_Session extends MY_Session {}
+} else {
+    class CIU_CI_or_MY_Session extends CI_Session {}
+}
+
+class CIU_Session extends CIU_CI_or_MY_Session
 {
 
     /**

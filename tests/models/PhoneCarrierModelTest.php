@@ -16,7 +16,7 @@ class PhoneCarrierModelTest extends CIUnit_TestCase
         parent::__construct($name, $data, $dataName);
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -39,7 +39,7 @@ class PhoneCarrierModelTest extends CIUnit_TestCase
         $this->_pcm = $this->CI->Phone_carrier_model;
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
     }

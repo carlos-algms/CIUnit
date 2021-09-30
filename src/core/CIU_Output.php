@@ -9,11 +9,17 @@
 
 /*
 * CodeIgniter source modified for fooStack / CIUnit
-* 
+*
 * If you use MY_Output, change the paraent class.
 */
 
-class CIU_Output extends MY_Output
+if (class_exists('MY_Output')) {
+    class CIU_CI_or_MY_Output extends MY_Output {}
+} else {
+    class CIU_CI_or_MY_Output extends CI_Output {}
+}
+
+class CIU_Output extends CIU_CI_or_MY_Output
 {
     public $views = array();
 

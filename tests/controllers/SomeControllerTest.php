@@ -5,7 +5,7 @@
  */
 class SomeControllerTest extends CIUnit_TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         // Set the tested controller
         $this->CI = set_controller('welcome');

@@ -13,7 +13,13 @@
 * If you use MY_Loader, change the paraent class.
 */
 
-class CIU_Loader extends MY_Loader
+if (class_exists('MY_Loader')) {
+    class CIU_CI_or_MY_Loader extends MY_Loader {}
+} else {
+    class CIU_CI_or_MY_Loader extends CI_Loader {}
+}
+
+class CIU_Loader extends CIU_CI_or_MY_Loader
 {
 
     /**
