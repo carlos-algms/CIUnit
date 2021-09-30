@@ -1,5 +1,3 @@
-phpunit.xml
-
 vendor/
 .DS_Store
 

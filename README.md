@@ -34,15 +34,30 @@ class LoginActionTest extends CIUnit_TestCase
 
 ## Install via composer
 
+Add a new "Repository" to your `composer.json` file:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/carlos-algms/CIUnit"
+        }
+    ]
+}
+```
+
 ```bash
-composer require Celc/ciunit dev-master
+composer require carlos-algms/ciunit main
 ```
 
 Copy the example test directory into the root of your project (same folder as `application` and `system`):
 
 ```bash
-cp -R vendor/celc/ciunit/tests ./
+cp -R vendor/carlos-algms/ciunit/tests ./
 ```
+
+### Data base testing
 
 Create `application/config/testing/database.php` for database testing. The database name must end with `_test`.
 
@@ -50,10 +65,19 @@ Create `application/config/testing/database.php` for database testing. The datab
 
 The `tests` directory is an example. You are meant to replace the tests with your own.
 
+
+## Fix paths
+
+In case you don't use standard paths, you can set them in the files:
+
+`tests/bootstrap.php` and `tests/phpunit.xml`
+
 ## Run Tests:
 
-From the `tests` directory run:
+From the root of your project, run:
 
 ```bash
-../vendor/phpunit
+./vendor/bin/phpunit --testdox -c ./tests
 ```
+
+The flag `--testdox` makes PHPUnit to print the test names.
