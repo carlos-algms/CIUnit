@@ -10,6 +10,9 @@ if (class_exists('MY_Controller')) {
     class CIU_CI_or_MY_Controller extends CI_Controller {}
 }
 
+/**
+ * @property CIU_Loader $load
+ */
 class CIU_Controller extends CIU_CI_or_MY_Controller {
 
 	public function index()
