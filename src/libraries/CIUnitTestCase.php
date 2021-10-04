@@ -67,7 +67,7 @@ abstract class CIUnit_TestCase extends TestCase
     /**
      * The CodeIgniter Framework Instance
      *
-     * @var object
+     * @var CIU_Controller
      */
     public $CI;
 
